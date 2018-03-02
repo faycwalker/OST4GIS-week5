@@ -1,0 +1,60 @@
+downloadData.done(function(data) {
+  var parsed = parseData(data);
+  var markers = makeMarkers(parsed);
+  plotMarkers(markers);
+  removeMarkers(markers);
+});
+
+var downloadData = $.ajax ("https://raw.githubusercontent.com/CPLN-692-401/datasets/master/json/philadelphia-solar-installations.json")
+var parseData = function (data){return JSON.parse(data)}
+var makeMarkers = function (object) {
+return _.map (object, function (item) {
+return L.marker ([parseFloat(), parseFloat()]);});
+};
+
+var plotMarkers = function(list) {
+return _.map(list, function (marker) {marker.addTo(map)})
+};
+
+var markers = makeMarkers (lat, long, parsed)
+var resetMap = function(marker) {
+return _.map (markers, function (item) {return item.addTo(map)})
+}
+
+$('#url-input').prop('disabled', false);
+$('#LAT').prop('disabled', false);
+$('#LONG_').prop('disabled', false);
+
+
+var data  = $.ajax (url)
+var lat = $.ajax('#LAT')
+var long = $.ajax('#LONG_')
+downloadData.done (function ()) {$('#LAT')('#LONG_')}.val()
+$('#button1').click(function () {
+var vals = {
+value1: $('#url-input').val(),
+value2: $('#LAT').val(),
+value3: $('#LONG_').val()
+}
+var makeValues =_.values(vals)
+var objValues = _.object(makeValues)
+console.log (objValues)
+L.Marker(
+[$('#LAT').val(),$('#LONG_').val()]).addTo(map).bindPopup()
+console.log(valKey)
+});
+
+});
+
+$(document).ready(function() {
+$('#url-input').val()
+$('#LAT').val()
+$('#LONG_').val()
+
+var vals = {
+value1: $('#url-input').val(),
+value2: $('#LAT').val(),
+value3: $('#LONG_').val()
+}
+var makeValues =_.values(vals)
+var objValues = _.object(makeValues)

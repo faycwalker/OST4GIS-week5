@@ -94,7 +94,9 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
     you might want to include a name, an address, an age, a couple of boolean characteristics, and a
     favorite color. Don't spend too much time on thinking about the perfect object to represent with
     this form, just about anything will do.
+*/
 
+/*
   Task 2: Setting (writing) input values
     *NOTE*: An input's value is not the same as an HTML element's text. We use $(selector).val() as
             opposed to $(selector).text() in this case.
@@ -103,10 +105,17 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
     properties of people, the name might be 'bob' and the favorite color could be green (hint: you'll
     want to get formatting exactly right to set a color field; experiment in the console to see what
     the color you'll specify should look like).
+    */
 
-  Task 3: Getting (reading) input values
+
+/*  Task 3: Getting (reading) input values
     Write the code necessary to read from your input form and return a javascript object (with keys
     to clarify the meaning of each value) that has all the data that's stored in your form.
+*/
+
+  /*
+  key6: $('#cbox-input1').prop()
+  key7: $('#cbox-input2').prop()
 
   Task 4: Enable user interaction with the form
     At this point, we're really only using HTML input fields as a kind of storage. We create some data,
@@ -122,10 +131,12 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
     $('#someInput').prop('disabled');
 
     Setting the property's value is just slightly more involved:
-    $('#someInput').prop('disabled', false); -> <input id="someInput" type="number">
-    $('#someInput').prop('disabled', true);  -> <input id="someInput" type="number" disabled>
+    $('#someInput').prop('disabled', false);
+    $('#someInput').prop('disabled', false);  -> <input id="someInput" type="number" disabled>
 
     Enable *all* fields on this form.
+*/
+/*
 
   Task 5: Add a button trigger to log this form's object to console
     We now can enter data through the HTML and create an object to represent that data. Add a button
@@ -137,24 +148,40 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
     until the event on which it is bound is triggered.
 
     P.S. Checkboxes might confuse you. Try to use google to figure out what's going wrong.
+//    value6: $('#cbox-input1')[0].checked,
+    value7: $('#cbox-input2')[0].checked,
 
-  Task 6: Plot input data to the map on button click
+
+*/
+
+
+
+/*  Task 6: Plot input data to the map on button click
     Modify this form to include at least a lat (number), long (number), description (text), and
     color (color) inputs. With these inputs you should be able to plot a circle marker
     (http://leafletjs.com/reference.html#circlemarker) to the lat/long on the form, with the color
     provided, and a bound popup which gives you the description.
+*/
 
-  // STRETCH GOALS
+/*
+
+STRETCH GOALS
   Task 7: Use default values - OPTIONAL
     We don't want the application to crash if our user fails to enter values for every field. Add
     whatever logic is necessary to set default values if a field is empty.
+
+
 
   Task 8: Try Leaflet's divIcon
     Instead of using a default leaflet marker or a circleMarker, try using a L.divIcon. A div icon
     is just an HTML <div> element on which CSS can be applied (HINT: background-color or
     background-image are necessary if you want to see the icon). When you've successfully implemented
     a divIcon, you should be able to grab it by reference to its class: 'leaflet-marker-icon'. So,
-    in jQuery, $('.leaflet-marker-icon').
+    in jQuery,
+
+    $('.leaflet-marker-icon').
+
+
 
   Task 9: Make a parametric function (one that accepts parameters/arguments) to fill the form out.
     At this point, we have an object which corresponds to a (at least partially) filled out form.
@@ -164,12 +191,104 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
     HTML and fully reconstituted by the code you've written to read from the form.
 
     Use `_.isEqual` to make sure the object you feed in is the same as the one you read back out.
-===================== */
+=====================
+_.isEqual (function (object) {}
+_.isEqual
+})
 
 // Take note of our use of jQuery here: $(document).ready(functionToCallWhenReady)
 // This is a popular pattern that you'll run into in programs that run jQuery. It says not to run
 // the function passed to `ready` until the HTML document is fully loaded and all scripts have
 // been interpreted. It is, therefore, an example of asynchronous behavior.
+
+*/
+
 $(document).ready(function() {
-  // Do your stuff here
-});
+    $('h1#main-heading').text('Philly Restaurants')
+    $('#text-label1').text('Restaurant Name')
+    $('#text-label2').text('Address')
+    $('#text-label3').text('Reviews')
+    $('#number-label').text('# of Stars')
+    $('#checkbox-label1').text('Takeout?')
+    $('#checkbox-label2').text('Delivery?')
+    $('#color-label').text('Awning Color')
+    $('#button').text('Search')
+
+    $('#text-input1').val('Abyssinia')
+    $('#text-input2').val('229 S. 45th St.')
+    $('#text-input3').val('Good')
+    $('#numeric-input').val('4')
+    $('#cbox-input1').prop('checked', true)
+    $('#cbox-input2').prop('checked', true)
+    $('#lat-input').val('39.9522')
+    $('#long-input').val('-75.1639')
+
+    var keys = {
+      key1: $('#text-label1').text(),
+      key2: $('#text-label2').text(),
+      key3: $('#text-label3').text(),
+      key4: $('#number-label').text(),
+      key5: $('#checkbox-label1').text(),
+      key6: $('#checkbox-label2').text(),
+      key7: $('#color-label').text()
+    }
+    var vals = {
+      value1: $('#text-input1').val(),
+      value2: $('#text-input2').val(),
+      value3: $('#text-input3').val(),
+      value4: $('#numeric-input').val(),
+      value5: $('#numeric-input').val(),
+      value6: $('#cbox-input1').prop('checked', true),
+      value7: $('#cbox-input2').prop('checked', true),
+      value8: $('color-input').val(),
+      value9: $('#lat-input').val(),
+      value10: $('#long-input').val()
+      }
+    var makeKeys = _.values(keys)
+    var makeValues =_.values(vals)
+    var valKey = _.object(makeKeys,makeValues)
+
+        $('#text-input1').prop('disabled', false);
+        $('#text-input2').prop('disabled', false);
+        $('#text-input3').prop('disabled', false);
+        $('#numeric-input').prop('disabled', false);
+        $('#cbox-input1').prop('disabled', false);
+        $('#cbox-input2').prop('disabled', false);
+        $('#lat-input').prop('disabled', false)
+        $('#long-input').prop('disabled', false)
+
+    $('#button1').click(function () {
+      var keys = {
+        key1: $('#text-label1').text(),
+        key2: $('#text-label2').text(),
+        key3: $('#text-label3').text(),
+        key4: $('#number-label').text(),
+        key5: $('#checkbox-label1').text(),
+        key6: $('#checkbox-label2').text(),
+        key7: $('#color-label').text()
+      }
+      var vals = {
+        value1: $('#text-input1').val(),
+        value2: $('#text-input2').val(),
+        value3: $('#text-input3').val(),
+        value4: $('#numeric-input').val(),
+        value5: $('#numeric-input').val(),
+        value6: $('#cbox-input1').prop('checked', true),
+        value7: $('#cbox-input2').prop('checked', true),
+        value8: $('color-input').val(),
+        value9: $('#lat-input').val(),
+        value10: $('#long-input').val()
+        }
+      var makeKeys = _.values(keys)
+      var makeValues =_.values(vals)
+      var valKey = _.object(makeKeys,makeValues)
+      console.log (valKey)
+
+    L.circleMarker(
+      [$('#lat-input').val(),$('#long-input').val()], {fillcolor: $('#color-input').val()}
+    ).addTo(map).bindPopup()
+
+      console.log(valKey)
+    });
+
+  });

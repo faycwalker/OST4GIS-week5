@@ -1,0 +1,53 @@
+$('#textbox').val('abc123')
+console.log ($('#textbox').val()
+var data = $.ajax()
+data.done(function(d)) {$('#textbox')}.val(d)})
+$('myButton').click(function(e) {console.log($('#textbox').val())
+})
+
+/*downloadData.done (function()) {$('#LAT')('#LONG_')}.val()
+var makeValues =_.values(vals)
+var objValues = _.object(makeValues)
+
+
+downloadData.done(function(data) {
+  var parsed = parseData(data);
+  var markers = makeMarkers(parsed);
+  plotMarkers(markers);
+  removeMarkers(markers);
+});
+
+
+var parseData = function (data){return JSON.parse(data)}
+
+var makeMarkers = function (object) {
+  return _.map (object, function (item) {
+    return L.marker ([item.LAT, item.LONG_]);})
+};
+var plotMarkers = function(mymarkers) {
+  mymarkers.addTo(map)
+};
+
+var removeMarkers = function(list) {
+  return _.map(list, function (marker) {map.removeLayer (marker)})
+};
+
+$('#LAT').prop('disabled', false);
+$('#LONG_').prop('disabled', false);
+
+$('#button1').click(function () {
+  $(document).ready(function() {
+    var vals = {
+      value1: $('#url-input').val(),
+      value2: $('#LAT').val(),
+      value3: $('#LONG_').val()
+   }
+  var downloadData = $.ajax (vals.value1)
+  downloadData.done (function(data) {
+    parseData (data)
+    var markers = makeMarkers (data)
+    console.log(markers);
+    plotMarkers (markers)
+  });
+});
+})

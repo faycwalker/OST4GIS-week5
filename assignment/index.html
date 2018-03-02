@@ -8,11 +8,31 @@
   </head>
   <body>
     <!-- Sidebar -->
+  <!--  1. Text input field, which will represent the URL of your dataset
+    2. Text input field, which will represent the latitude key in your data
+    3. Text input field, which will represent the longitude key in your data
+    4. Button, which will run your script
+-->
     <div class="sidebar">
-      <!-- =====================
-      Add elements in this space
-      ====================== -->
+        <div class ="header"><h2> Input Data </h2>
+          <label id="text-label1" for="url-input">URL</label>
+          <input type="text" id="url-input" placeholder="URL">
+          <br>
+          <br>
+          <label id="text-label2" for="LAT">Latitude</label>
+          <input type="text" id="LAT" disabled>
+          <br>
+          <br>
+          <label id="text-label3" for="LONG_"> Longitude</label>
+          <input type="text" id="LONG_" disabled>
+          <br>
+          <br>
+          <button id='button1'>Run Script</button>
+
+  </div>
+
     </div>
+
     <!-- Map -->
     <div id="map" class="map"></div>
     <!-- Javascript Imports -->
